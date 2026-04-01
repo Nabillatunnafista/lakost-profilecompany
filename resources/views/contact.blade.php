@@ -8,6 +8,7 @@
 
 @section('content')
 
+    {{-- Breadcrumb & Header Halaman --}}
     <div class="page-header">
         <div class="container">
             <div class="page-header-inner">
@@ -26,6 +27,7 @@
         <div class="container">
             <div class="contact-grid">
 
+                {{-- Kolom Kiri: Informasi Kontak & Sosial Media --}}
                 <div class="reveal">
                     <div class="info-intro">
                         <div class="tag">
@@ -35,23 +37,17 @@
                         <p>Jangan ragu menghubungi kami. Tim lakost siap merespons dengan cepat.</p>
                     </div>
 
+                    {{-- Card Informasi: Alamat, Email, Telepon --}}
                     <div class="info-card">
-                        <div class="info-ic map">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
+                        <div class="info-ic map"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="info-txt">
                             <strong>Alamat Kantor</strong>
-                            <span>
-                                Jl. Mendalan No.62, Banjarmendalan,<br>
-                                Kec. Lamongan, Kab. Lamongan, Jawa Timur
-                            </span>
+                            <span>Jl. Mendalan No.62, Banjarmendalan, Kec. Lamongan, Kab. Lamongan, Jawa Timur</span>
                         </div>
                     </div>
 
                     <div class="info-card">
-                        <div class="info-ic email">
-                            <i class="fas fa-envelope"></i>
-                        </div>
+                        <div class="info-ic email"><i class="fas fa-envelope"></i></div>
                         <div class="info-txt">
                             <strong>Email</strong>
                             <a href="mailto:info@lakost.id">info@lakost.id</a>
@@ -59,15 +55,14 @@
                     </div>
 
                     <div class="info-card">
-                        <div class="info-ic phone">
-                            <i class="fas fa-phone"></i>
-                        </div>
+                        <div class="info-ic phone"><i class="fas fa-phone"></i></div>
                         <div class="info-txt">
                             <strong>Telepon / WhatsApp</strong>
                             <a href="https://wa.me/6285732973754" target="_blank">+62 8573-2973-754</a>
                         </div>
                     </div>
 
+                    {{-- Tautan Media Sosial --}}
                     <div class="socials-row">
                         <h4>Ikuti Kami</h4>
                         <div class="soc-links">
@@ -81,12 +76,14 @@
                     </div>
                 </div>
 
+                {{-- Kolom Kanan: Formulir Kontak --}}
                 <div class="form-box reveal">
                     <div class="form-box-head">
                         <h3>Kirim Pesan</h3>
                         <p>Isi formulir di bawah dan kami akan segera merespons Anda.</p>
                     </div>
 
+                    {{-- Menampilkan Pesan Sukses setelah pengiriman form --}}
                     @if(session('success'))
                         <div class="alert-success">
                             <i class="fas fa-check-circle"></i>
@@ -94,9 +91,11 @@
                         </div>
                     @endif
 
+                    {{-- Form Method POST menuju route contact.store --}}
                     <form action="{{ route('contact.store') }}" method="POST">
-                        @csrf
+                        @csrf {{-- Token keamanan wajib Laravel --}}
 
+                        {{-- Input Nama --}}
                         <div class="form-group">
                             <label for="name">Nama Lengkap <span class="req">*</span></label>
                             <input type="text" id="name" name="name"
@@ -104,11 +103,13 @@
                                 value="{{ old('name') }}" 
                                 placeholder="Nama lengkap Anda" 
                                 autocomplete="name">
+                            {{-- Pesan error validasi nama --}}
                             @error('name')
                                 <span class="field-error">{{ $message }}</span>
                             @enderror
                         </div>
 
+                        {{-- Input Email --}}
                         <div class="form-group">
                             <label for="email">Alamat Email <span class="req">*</span></label>
                             <input type="email" id="email" name="email"
@@ -121,6 +122,7 @@
                             @enderror
                         </div>
 
+                        {{-- Input Pesan --}}
                         <div class="form-group">
                             <label for="message">Pesan <span class="req">*</span></label>
                             <textarea id="message" name="message"
@@ -135,7 +137,8 @@
                             <i class="fas fa-paper-plane"></i> Kirim Pesan Sekarang
                         </button>
                     </form>
-                </div> </div>
+                </div> 
+            </div>
         </div>
     </section>
 
