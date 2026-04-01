@@ -1,0 +1,230 @@
+/* ═══════════════════════════════════════════════
+   LAkost — about.css
+   ═══════════════════════════════════════════════ */
+
+/* ── Bagian Story (Cerita Kami) ──────────────── */
+.story {
+    padding: 96px 0;
+    background: var(--white);
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+}
+
+.story-visual {
+    position: relative;
+}
+
+/* Kotak Visual Utama */
+.story-box {
+    background: linear-gradient(135deg, var(--dark-blue), var(--mid-blue));
+    border-radius: 22px;
+    aspect-ratio: 4/3;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Pola Background SVG pada Kotak Story */
+.story-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='52' height='52' viewBox='0 0 52 52' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C1E8FF' fill-opacity='.07'%3E%3Cpath d='M30 28v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.story-box-inner {
+    position: relative;
+    text-align: center;
+    color: var(--white);
+    padding: 36px;
+}
+
+.story-box-inner i {
+    font-size: 72px;
+    opacity: .25;
+    display: block;
+    margin-bottom: 18px;
+}
+
+.story-box-inner h3 {
+    font-size: 24px;
+    margin-bottom: 6px;
+}
+
+.story-box-inner p {
+    color: rgba(255, 255, 255, .65);
+    font-size: 14px;
+}
+
+/* Badge Melayang di Pojok Kotak */
+.story-badge {
+    position: absolute;
+    bottom: -18px;
+    right: -18px;
+    background: var(--white);
+    border-radius: 14px;
+    padding: 14px 18px;
+    box-shadow: 0 10px 36px rgba(5, 38, 89, .18);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.badge-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--mid-blue), var(--sky));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 17px;
+}
+
+.badge-text strong {
+    display: block;
+    font: 800 19px var(--ff-display);
+    color: var(--navy);
+}
+
+.badge-text span {
+    font-size: 12px;
+    color: var(--gray);
+}
+
+/* Teks dan Paragraf Story */
+.story-text p {
+    font-size: 15px;
+    color: #4a5568;
+    line-height: 1.9;
+    margin-bottom: 14px;
+}
+
+/* Kutipan (Blockquote) dalam Story */
+.story-quote {
+    background: linear-gradient(135deg, rgba(84, 131, 179, .08), rgba(193, 232, 255, .11));
+    border-left: 4px solid var(--mid-blue);
+    border-radius: 0 12px 12px 0;
+    padding: 18px 22px;
+    margin: 22px 0;
+    font: 500 italic 15px/1.75 var(--ff-body);
+    color: var(--dark-blue);
+}
+
+/* ── Bagian Visi & Misi ───────────────────────── */
+.visi {
+    background: linear-gradient(155deg, var(--navy), var(--dark-blue));
+    padding: 96px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Pola Background SVG pada Visi */
+.visi::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='52' height='52' viewBox='0 0 52 52' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%235483B3' fill-opacity='.06'%3E%3Cpath d='M30 28v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.visi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    position: relative;
+}
+
+/* Kartu Visi dan Misi */
+.visi-card {
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .10);
+    border-radius: 22px;
+    padding: 38px;
+    backdrop-filter: blur(10px);
+    transition: all var(--ease);
+}
+
+.visi-card:hover {
+    background: rgba(255, 255, 255, .09);
+    transform: translateY(-4px);
+}
+
+.visi-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 22px;
+}
+
+/* Warna Ikon Visi (Emas/Oranye) */
+.visi-icon.vision {
+    background: linear-gradient(135deg, #FFD700, #FF8C00);
+    color: var(--white);
+}
+
+/* Warna Ikon Misi (Biru) */
+.visi-icon.mission {
+    background: linear-gradient(135deg, var(--mid-blue), var(--sky));
+    color: var(--white);
+}
+
+.visi-card h3 {
+    font-size: 21px;
+    color: var(--white);
+    margin-bottom: 14px;
+}
+
+.visi-card p {
+    color: rgba(255, 255, 255, .68);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* Daftar Poin pada Misi */
+.misi-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.misi-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    color: rgba(255, 255, 255, .68);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.misi-list li i {
+    color: var(--sky);
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+/* ── Pengaturan Responsive (Tablet & Mobile) ──── */
+@media (max-width: 768px) {
+    /* Layout menumpuk jadi 1 kolom */
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .visi-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

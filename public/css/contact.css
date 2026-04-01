@@ -1,0 +1,298 @@
+/* ═══════════════════════════════════════════════
+   LAkost — contact.css
+   ═══════════════════════════════════════════════ */
+
+/* ── Contact Section (Bagian Utama Kontak) ───── */
+.contact-section {
+    padding: 76px 0 96px;
+    background: var(--light-bg);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.55fr;
+    gap: 44px;
+    align-items: start;
+}
+
+/* ── Info Panel (Panel Informasi Kontak) ─────── */
+.info-intro {
+    margin-bottom: 28px;
+}
+
+.info-intro .section-title {
+    font-size: clamp(1.6rem, 2.8vw, 2rem);
+    margin-bottom: 10px;
+}
+
+.info-intro p {
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 1.75;
+}
+
+/* Kartu Informasi (Alamat, Email, Telepon) */
+.info-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 20px 22px;
+    border: 1px solid rgba(84, 131, 179, .10);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 14px;
+    transition: all var(--ease);
+}
+
+.info-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 6px 22px rgba(84, 131, 179, .11);
+}
+
+/* Ikon di dalam Info Card */
+.info-ic {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+}
+
+/* Variasi Warna Ikon */
+.info-ic.map {
+    background: rgba(84, 131, 179, .12);
+    color: var(--mid-blue);
+}
+
+.info-ic.email {
+    background: rgba(5, 38, 89, .08);
+    color: var(--dark-blue);
+}
+
+.info-ic.phone {
+    background: rgba(37, 211, 102, .12);
+    color: #25D366;
+}
+
+/* Teks di dalam Info Card */
+.info-txt strong {
+    display: block;
+    font: 700 11px var(--ff-display);
+    letter-spacing: .7px;
+    text-transform: uppercase;
+    color: #a0aec0;
+    margin-bottom: 4px;
+}
+
+.info-txt span,
+.info-txt a {
+    font-size: 14px;
+    color: var(--navy);
+    font-weight: 500;
+    transition: color var(--ease);
+}
+
+.info-txt a:hover {
+    color: var(--mid-blue);
+}
+
+/* Bagian Media Sosial */
+.socials-row {
+    margin-top: 22px;
+}
+
+.socials-row h4 {
+    font: 700 11px var(--ff-display);
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    color: #a0aec0;
+    margin-bottom: 12px;
+}
+
+.soc-links {
+    display: flex;
+    gap: 10px;
+}
+
+.soc-link {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 15px;
+    border-radius: 10px;
+    font: 600 13px var(--ff-display);
+    border: 1px solid rgba(84, 131, 179, .20);
+    background: var(--white);
+    color: var(--navy);
+    transition: all var(--ease);
+}
+
+.soc-link:hover {
+    border-color: var(--mid-blue);
+    background: rgba(84, 131, 179, .06);
+}
+
+.soc-link.ig i {
+    color: #E1306C;
+}
+
+.soc-link.fb i {
+    color: #1877F2;
+}
+
+/* ── Form Box (Kotak Formulir Pesan) ─────────── */
+.form-box {
+    background: var(--white);
+    border-radius: 22px;
+    padding: 42px;
+    border: 1px solid rgba(84, 131, 179, .10);
+    box-shadow: 0 8px 30px rgba(5, 38, 89, .07);
+}
+
+.form-box-head {
+    margin-bottom: 30px;
+}
+
+.form-box-head h3 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.form-box-head p {
+    font-size: 14px;
+    color: var(--gray);
+}
+
+/* Input Group dan Label */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font: 700 13px var(--ff-display);
+    margin-bottom: 7px;
+    color: var(--navy);
+}
+
+.form-group label .req {
+    color: #e53e3e;
+}
+
+/* Desain Input (Form Control) */
+.form-control {
+    width: 100%;
+    padding: 13px 16px;
+    border-radius: 11px;
+    outline: none;
+    border: 1.5px solid rgba(84, 131, 179, .24);
+    background: #fafcff;
+    font: 15px var(--ff-body);
+    color: var(--navy);
+    transition: all var(--ease);
+}
+
+.form-control:focus {
+    border-color: var(--mid-blue);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(84, 131, 179, .10);
+}
+
+/* State Error pada Input */
+.form-control.error {
+    border-color: #e53e3e;
+}
+
+.form-control.error:focus {
+    box-shadow: 0 0 0 4px rgba(229, 62, 62, .10);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 132px;
+}
+
+.field-error {
+    display: block;
+    font-size: 12px;
+    color: #e53e3e;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+/* Tombol Submit */
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--dark-blue), var(--mid-blue));
+    color: var(--white);
+    border-radius: 12px;
+    margin-top: 6px;
+    font: 700 16px var(--ff-display);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    box-shadow: 0 4px 18px rgba(84, 131, 179, .34);
+    transition: all var(--ease);
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 26px rgba(84, 131, 179, .44);
+}
+
+/* Notifikasi Sukses */
+.alert-success {
+    background: linear-gradient(135deg, #f0fff4, #c6f6d5);
+    border: 1px solid #9ae6b4;
+    border-radius: 13px;
+    padding: 18px 22px;
+    margin-bottom: 26px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    animation: slideDown .5s ease;
+}
+
+.alert-success i {
+    font-size: 20px;
+    color: #38a169;
+    flex-shrink: 0;
+}
+
+.alert-success p {
+    color: #276749;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ── Keyframes (Animasi) ─────────────────────── */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Responsive (Tampilan Seluler) ───────────── */
+@media (max-width: 860px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .form-box {
+        padding: 26px 20px;
+    }
+}

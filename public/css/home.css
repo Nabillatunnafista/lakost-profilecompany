@@ -1,0 +1,276 @@
+/* ═══════════════════════════════════════════════
+   LAkost — index.css (Home Page)
+   ═══════════════════════════════════════════════ */
+
+/* ── Hero Container (Bagian Utama Paling Atas) ─ */
+.hero {
+    min-height: 104vh;
+    background: #093478; /* Warna navy dasar */
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* ── Sisi Kiri Hero (Teks & Deskripsi) ───────── */
+.hero-left {
+    width: 45%; /* Batasi agar tidak menabrak gambar di kanan */
+    position: relative;
+    z-index: 20; /* Prioritas di depan gambar */
+}
+
+.hero-title {
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    line-height: 1.1;
+    font-weight: 800;
+    color: #ffffff !important;
+    margin-bottom: 24px;
+}
+
+.hero-title em {
+    font-style: normal;
+    color: #5483B3;
+    font-weight: 800;
+}
+
+.hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* ── Sisi Kanan Hero (Gambar Background) ─────── */
+.hero-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 65%; /* Porsi gambar lebih dominan di kanan */
+    height: 100%;
+    z-index: 1; /* Di belakang teks agar teks tetap terbaca */
+}
+
+.photo-mask {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Efek Gradasi (Transisi dari warna solid ke gambar) */
+.photo-mask::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* Gradasi: Navy Pekat (kiri) -> Transparan (kanan) */
+    background: linear-gradient(
+        to right,
+        #093478 0%,
+        #093478 25%,
+        rgba(9, 52, 120, 0.4) 60%,
+        transparent 100%
+    );
+    z-index: 2;
+}
+
+.photo-mask img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ── Services Section (Layanan Kami) ─────────── */
+#layanan .services {
+    background: var(--light-bg);
+    padding: 60px 0 80px;
+    margin-top: 15px;
+    position: relative;
+    z-index: 10;
+    scroll-margin-top: 90px;
+}
+
+.services .tag {
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: var(--navy);
+    margin-bottom: 10px;
+}
+
+.section-sub {
+    font-size: 1rem;
+    color: var(--text-gray);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grid Kartu Layanan */
+.svc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.svc-card {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.svc-card h3 {
+    font-size: 1.25rem;
+    color: #052659; /* Warna Judul Layanan */
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.svc-card p {
+    font-size: 0.95rem;
+    color: #64748b; /* Warna Deskripsi Layanan */
+    line-height: 1.6;
+}
+
+/* ── Areas Section (Cakupan Wilayah) ─────────── */
+.areas {
+    padding: 100px 0;
+    background: white;
+}
+
+.areas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.area-item {
+    background: var(--light-bg);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: 0.3s;
+}
+
+.area-item:hover {
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--mid-blue);
+}
+
+/* ── CTA Banner (Full Width) ─────────────────── */
+.cta-banner {
+    background: linear-gradient(135deg, #093478, #052659);
+    width: 100%;
+    padding: 80px 0;
+    margin-top: 50px;
+    margin-bottom: 0;
+    border-radius: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.cta-text-wrapper h2 {
+    color: #ffffff !important;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.cta-text-wrapper p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+}
+
+.cta-btns-wrapper {
+    display: flex;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+/* Tombol Outline untuk CTA */
+.btn-outline {
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    padding: 12px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: #ffffff;
+    color: #093478;
+}
+
+/* ── Responsive Settings ─────────────────────── */
+
+/* Untuk Tablet & HP (Layar di bawah 900px) */
+@media (max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-image {
+        height: 50vh;
+        margin-top: 30px;
+    }
+
+    .photo-frame::after {
+        /* Gradasi berubah arah dari atas ke bawah pada layar kecil */
+        background: linear-gradient(to bottom, #093478 0%, transparent 100%);
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .svc-grid,
+    .areas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+}
+
+/* Penyesuaian Khusus HP (768px ke bawah) */
+@media (max-width: 768px) {
+    .hero-left {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-right {
+        width: 100%;
+        opacity: 0.2; /* Menipiskan gambar agar teks tetap terbaca di layar sempit */
+    }
+
+    .cta-row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cta-btns-wrapper {
+        justify-content: center;
+    }
+}
