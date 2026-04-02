@@ -496,6 +496,24 @@ footer {
     color: rgba(255, 255, 255, .35);
 }
 
+.team-names {
+    list-style: none;
+    padding: 0;
+}
+
+.team-names li:first-child {
+    font-weight: bold;
+    font-size: 1.1rem; 
+    margin-bottom: 10px; 
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.team-names li {
+    color: #cbd5e0; 
+    margin-bottom: 5px;
+}
+
 /* ── Perbaikan Navbar Mobile (Rata Kiri & Tidak Numpuk) ── */
 @media (max-width: 768px) {
     #navbar { 

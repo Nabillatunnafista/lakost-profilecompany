@@ -62,7 +62,13 @@
                 <div class="nav-brand">
                     <img src="{{ asset('images/logo.png') }}" alt="Logo lakost" class="nav-logo-img">
                 </div>
-                <p>Platform penghubung pencari kos dan pemilik hunian di Lamongan yang aman, mudah, terverifikasi, dan transparan.</p>
+                <ul class="team-names">
+                    <li><strong>TEAM PENGEMBANG LAKOST</strong></li>
+                    <li>Angelina Safara - frontend developer</li>
+                    <li>Alsahera Ramadhan nesa - Backend developer</li>
+                    <li>Nabillatun Nafista - UI/UX Designer</li><br>
+                </ul>
+
                 <div class="footer-socials">
                     <a href="https://www.instagram.com/_nnnfta/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.facebook.com/share/17WJFzHxqg/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
