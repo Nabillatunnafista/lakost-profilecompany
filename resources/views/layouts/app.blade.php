@@ -16,10 +16,9 @@
     {{-- Icons (Font Awesome) --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    {{-- Global CSS (main.css) --}}
+    {{-- Global CSS --}}
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
-    {{-- Page-specific CSS (untuk home.css, etc.) --}}
     @stack('styles')
 </head>
 <body>
@@ -38,14 +37,17 @@
     {{-- Link Navigasi --}}
     <ul class="nav-links" id="nav-links">
         <li><a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a></li>
-        <li><a href="{{ route('home') }}#layanan">Layanan</a></li>
         <li><a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">About Us</a></li>
+        <li><a href="{{ route('home') }}#layanan">Layanan</a></li>
         <li><a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a></li>
-        <li>
+        <li class="nav-actions">
+            <a href="{{ route('admin.login') }}" class="btn-login-admin">
+                <i class="fas fa-lock"></i> Login Admin
+            </a>
             <a href="https://wa.me/6285732973754" target="_blank" class="btn btn-wa btn-cta">
                 <i class="fab fa-whatsapp"></i> Hubungi Kami
             </a>
-        </div>
+        </li>
     </ul>
 </nav>
 
@@ -96,17 +98,18 @@
             </div>
         </div>
 
-        {{-- Hak Cipta (Paling Bawah) --}}
         <div class="footer-bottom">
             <p>&copy; {{ date('Y') }} lakost. Hak Cipta Dilindungi. Dibuat dengan ♥ di Lamongan.</p>
         </div>
     </div>
 </footer>
 
-{{-- Global JS (app.js) --}}
+{{-- Scroll to Top --}}
+<button class="scroll-to-top" id="scrollToTop"><i class="fas fa-chevron-up"></i></button>
+
+{{-- Global JS --}}
 <script src="{{ asset('js/app.js') }}"></script>
 
-{{-- Page-specific JS --}}
 @stack('scripts')
 </body>
 </html>

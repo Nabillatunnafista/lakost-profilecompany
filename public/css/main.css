@@ -274,6 +274,50 @@ img {
     border-radius: 2px;
 }
 
+/* ── Nav Actions Group (Login Admin + Hubungi Kami) ── */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+}
+ 
+/* ── Tombol Login Admin ── */
+.btn-login-admin {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 18px;
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    border-radius: 100px;           /* pill shape */
+    color: rgba(255, 255, 255, 0.88);
+    font: 600 13px var(--ff-display);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--ease);
+    white-space: nowrap;
+    line-height: 1;
+}
+ 
+.btn-login-admin i {
+    font-size: 12px;
+    opacity: 0.85;
+}
+ 
+.btn-login-admin:hover {
+    background: var(--mid-blue);
+    border-color: var(--sky);
+    color: var(--white);
+    box-shadow: 0 4px 16px rgba(84, 131, 179, 0.35);
+    transform: translateY(-1px);
+}
+ 
+/* ── Pastikan tombol WA dan Login Admin sejajar di desktop ── */
+#nav-links .nav-actions {
+    margin-left: 6px;
+}
+ 
 /* Menu Hamburger (Mobile) */
 .hamburger {
     display: none;
@@ -568,5 +612,21 @@ footer {
     /* Sembunyikan garis bawah aktif di mobile agar lebih bersih */
     .nav-links a.active::after {
         display: none;
+    }
+}
+/* ── Mobile adjustments ── */
+@media (max-width: 768px) {
+    .nav-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 8px;
+        width: 100%;
+    }
+ 
+    .btn-login-admin {
+        width: auto;
+        font-size: 15px;
+        padding: 10px 20px;
     }
 }
