@@ -5,6 +5,55 @@
 
 @section('content')
 
+<style>
+    /* Styling khusus untuk header section dan tombol Lihat Semua */
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 0 5px;
+    }
+
+    .btn-view-all {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 16px;
+        background-color: transparent;
+        color: #1e3a8a; /* Warna biru navy sesuai tema LAkost */
+        border: 1.5px solid #1e3a8a;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-view-all:hover {
+        background-color: #1e3a8a;
+        color: #ffffff;
+        box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+        transform: translateY(-2px);
+    }
+
+    .btn-view-all i {
+        margin-left: 8px;
+        font-size: 0.75rem;
+        transition: transform 0.3s ease;
+    }
+
+    .btn-view-all:hover i {
+        transform: translateX(4px);
+    }
+
+    /* Penyesuaian heading agar sejajar */
+    .section-heading {
+        margin-bottom: 0 !important;
+        font-weight: 700;
+        color: #334155;
+    }
+</style>
+
 {{-- Stats Cards --}}
 <div class="stats-grid">
     <div class="stat-card stat-users">
@@ -59,8 +108,8 @@
 </div>
 
 {{-- Quick Links --}}
-<div class="dashboard-section">
-    <h3 class="section-heading">Akses Cepat</h3>
+<div class="dashboard-section" style="margin-top: 30px;">
+    <h3 class="section-heading" style="margin-bottom: 15px;">Akses Cepat</h3>
     <div class="quick-links">
         <a href="{{ route('admin.kost.create') }}" class="quick-link">
             <i class="fas fa-plus-circle"></i>
@@ -82,10 +131,12 @@
 </div>
 
 {{-- Recent Kost Table --}}
-<div class="dashboard-section">
+<div class="dashboard-section" style="margin-top: 30px;">
     <div class="section-header">
         <h3 class="section-heading">Kost Terbaru</h3>
-        <a href="{{ route('admin.kost.index') }}" class="btn-sm-link">Lihat Semua ...</a>
+        <a href="{{ route('admin.kost.index') }}" class="btn-view-all">
+            Lihat Semua <i class="fas fa-arrow-right"></i>
+        </a>
     </div>
     <div class="table-card">
         <table class="admin-table">

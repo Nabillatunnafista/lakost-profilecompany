@@ -3,44 +3,56 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Wilayah;
-use App\Models\Kategori;
 use Illuminate\Http\Request;
+use App\Models\Wilayah;
 
 class WilayahController extends Controller
 {
+    // =========================
+    // TAMPIL DATA
+    // =========================
     public function index()
     {
-        $wilayahs = Wilayah::all();
-        $kategoris = Kategori::all(); // Diperlukan karena tab-nya digabung
-        return view('admin.kategori', compact('wilayahs', 'kategoris'));
+        $wilayahs = Wilayah::latest()->get();
+        return view('admin.wilayah', compact('wilayahs'));
     }
 
+    // =========================
+    // SIMPAN DATA
+    // =========================
     public function store(Request $request)
     {
-        $data = $request->validate(['nama_kecamatan' => 'required', 'keterangan' => 'nullable']);
+        $data = $request->validate([
+            'nama_kecamatan' => 'required|string|max:150',
+            'keterangan' => 'nullable|string',
+        ]);
+
         Wilayah::create($data);
-        return back()->with('success', 'Wilayah berhasil ditambahkan.');
+
+        return redirect()->back()->with('success', 'Wilayah berhasil ditambahkan!');
     }
+
+    // =========================
+    // UPDATE DATA
+    // =========================
+    public function update(Request $request, $id)
+    {
+        $data = $request->validate([
+            'nama_kecamatan' => 'required|string|max:150',
+            'keterangan' => 'nullable|string',
+        ]);
+
+        $wilayah = Wilayah::findOrFail($id);
+        $wilayah->update($data);
+
+        return redirect()->back()->with('success', 'Wilayah berhasil diupdate!');
+    }
+
     public function destroy($id)
-{
-    $wilayah = \App\Models\Wilayah::findOrFail($id);
-    $wilayah->delete();
-    return redirect()->back()->with('success', 'Data Wilayah berhasil dihapus!');
-}
-public function update(Request $request, $id)
-{
-    $request->validate([
-        'nama_kecamatan' => 'required|string|max:150',
-        'keterangan' => 'nullable|string',
-    ]);
+    {
+        $wilayah = Wilayah::findOrFail($id);
+        $wilayah->delete();
 
-    $wilayah = \App\Models\Wilayah::findOrFail($id);
-    $wilayah->update([
-        'nama_kecamatan' => $request->nama_kecamatan,
-        'keterangan' => $request->keterangan,
-    ]);
-
-    return redirect()->back()->with('success', 'Data wilayah berhasil diperbarui!');
-}
+        return redirect()->back()->with('success', 'Wilayah berhasil dihapus!');
+    }
 }

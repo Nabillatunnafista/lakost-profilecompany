@@ -16,7 +16,11 @@ class Kost extends Model {
     'maps',     
     'status'     
 ];
-    public function kategori() { return $this->belongsTo(Kategori::class); }
-    public function wilayah() { return $this->belongsTo(Wilayah::class); }
+    public function kategori(){
+    return $this->belongsTo(Kategori::class);
+    }
+    public function wilayah(){
+    return $this->belongsTo(Wilayah::class);
+    }
     public function fotos() { return $this->hasMany(KostFoto::class); }
 }

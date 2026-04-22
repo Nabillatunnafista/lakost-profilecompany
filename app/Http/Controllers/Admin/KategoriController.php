@@ -8,30 +8,46 @@ use Illuminate\Http\Request;
 
 class KategoriController extends Controller
 {
+    // ✅ TAMPIL DATA
     public function index()
     {
-        $kategoris = Kategori::all();
+        $kategoris = Kategori::latest()->get();
         return view('admin.kategori', compact('kategoris'));
     }
 
+    // ✅ SIMPAN DATA
     public function store(Request $request)
     {
-        $data = $request->validate(['nama_kategori' => 'required', 'deskripsi' => 'nullable']);
-        Kategori::create($data);
-        return back()->with('success', 'Kategori berhasil ditambahkan.');
+        $request->validate([
+            'nama_kategori' => 'required',
+            'deskripsi' => 'nullable'
+        ]);
+
+        Kategori::create($request->all());
+
+        return back()->with('success', 'Kategori berhasil ditambahkan');
     }
+
+    // ✅ UPDATE DATA
     public function update(Request $request, $id)
-{
-    $request->validate([
-        'nama_kategori' => 'required|string|max:100',
-    ]);
+    {
+        $request->validate([
+            'nama_kategori' => 'required',
+            'deskripsi' => 'nullable'
+        ]);
 
-    $kategori = \App\Models\Kategori::findOrFail($id);
+        $kategori = Kategori::findOrFail($id);
+        $kategori->update($request->all());
 
-    $kategori->update([
-        'nama_kategori' => $request->nama_kategori,
-    ]);
+        return back()->with('success', 'Kategori berhasil diupdate');
+    }
 
-    return redirect()->route('admin.kategori.index')->with('success', 'Kategori berhasil diperbarui!');
-}
+    // 🔥 WAJIB ADA (INI YANG ERROR KAMU)
+    public function destroy($id)
+    {
+        $kategori = Kategori::findOrFail($id);
+        $kategori->delete();
+
+        return back()->with('success', 'Kategori berhasil dihapus');
+    }
 }

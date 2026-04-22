@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\KategoriController;
 use App\Http\Controllers\Admin\WilayahController;
 use App\Http\Controllers\Admin\KostController;
 use App\Http\Controllers\Admin\ProfilController;
+use App\Http\Controllers\Admin\BookingController;
+use App\Http\Controllers\Admin\PembayaranController;
 use Illuminate\Support\Facades\Route;
 
 /* ── PUBLIC ROUTES ── */
@@ -41,5 +43,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::delete('/kost/foto/{id}', [KostController::class, 'destroyFoto'])->name('kost.foto.destroy');
         Route::get('/profil',  [ProfilController::class, 'adminProfil'])->name('profil');
         Route::put('/profil',  [ProfilController::class, 'updateProfil'])->name('profil.update');
+        // BOOKING
+        Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
+        Route::get('/booking/create', [BookingController::class, 'create'])->name('booking.create');
+        Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+        Route::get('/booking/{id}/{status}', [BookingController::class, 'updateStatus']);
+        Route::delete('/booking/{id}', [BookingController::class, 'destroy'])->name('booking.destroy');
+
+        // PEMBAYARAN
+        Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
+        Route::get('/pembayaran/{id}/{status}', [PembayaranController::class, 'updateStatus']);
+        Route::delete('/pembayaran/{id}', [PembayaranController::class, 'destroy'])->name('pembayaran.destroy');
     });
 });
